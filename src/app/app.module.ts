@@ -17,6 +17,7 @@ import { PlusComponent } from './icons/plus.component';
 import { StarEmptyComponent } from './icons/star-empty.component';
 import { StarFullComponent } from './icons/star-full.component';
 import { ThreeDotComponent } from './icons/three-dot.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'place', component: PlaceComponent },
@@ -38,7 +39,8 @@ const routes: Routes = [
     PlusComponent,
     StarEmptyComponent,
     StarFullComponent,
-    ThreeDotComponent
+    ThreeDotComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
+import { StoreService } from '../store.service';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
-  places = [];
+  places;
   users;
   page;
-  constructor() {}
+  constructor(private store: StoreService) {
+    this.page = this.store.getPage();
+    this.users = this.store.getUsers();
+    this.places = this.store.getPlaces();
+  }
 
   ngOnInit() {
     mapboxgl.accessToken =
