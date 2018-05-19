@@ -1,4 +1,4 @@
-<div *ngFor="let user of users; let i = index" (click)="changeUser(i)" [ngClass]="user === selectedUser ? 'activeUser' : 'secondaryUser'">
+<div *ngFor="let user of users; let i = index" (click)="changeUser(i)" [ngClass]="[user === selectedUser ? activeUser : secondaryUser, 'profile-'+i]">
   <div class="online"></div>
   <img [src]="user.img" />
 </div>
