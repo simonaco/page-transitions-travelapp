@@ -12,6 +12,11 @@ import { IndexComponent } from './index/index.component';
 import { BaseComponent } from './icons/base.component';
 import { CalendarComponent } from './icons/calendar.component';
 import { MailComponent } from './icons/mail.component';
+import { MailPinComponent } from './icons/mail-pin.component';
+import { PlusComponent } from './icons/plus.component';
+import { StarEmptyComponent } from './icons/star-empty.component';
+import { StarFullComponent } from './icons/star-full.component';
+import { ThreeDotComponent } from './icons/three-dot.component';
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'place', component: PlaceComponent },
@@ -28,7 +33,12 @@ const routes: Routes = [
     IndexComponent,
     BaseComponent,
     CalendarComponent,
-    MailComponent
+    MailComponent,
+    MailPinComponent,
+    PlusComponent,
+    StarEmptyComponent,
+    StarFullComponent,
+    ThreeDotComponent
   ],
   imports: [
     BrowserModule,

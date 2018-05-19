@@ -1,3 +1,21 @@
-<p>
-  index works!
-</p>
+<main>
+  <div class="places" ref="places">
+    <div *ngFor="let place of places" class="location">
+      <img [src]="place.img" [alt]="place.name" />
+      <h2>{{ place.name }}</h2>
+      <p>
+        <strong>Rating: {{ place.rating }}</strong>
+      </p>
+      <p>{{ place.description }}</p>
+      <hr />
+    </div>
+  </div>
+  <div class="mapcontain" ref="mapcontain">
+    <p>
+      <icon-base [iconName]="mappin">
+        <svg:g icon-map-pin />
+      </icon-base>
+      Checked in at Honolulu location
+    </p>
+  </div>
+</main>
