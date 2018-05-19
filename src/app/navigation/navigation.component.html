@@ -1,3 +1,15 @@
-<p>
-  navigation works!
-</p>
+<header [ngClass]="{
+  'place' : page === 'place',
+  'group' : page === 'group',
+  'index' : page === 'index'
+}">
+  <div class="nav-wrapper">
+    <nav>
+      <ul>
+        <li *ngFor="let item of nav" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.exact }">
+          {{ item.name }}
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
