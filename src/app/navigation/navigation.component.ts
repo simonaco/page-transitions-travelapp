@@ -5,12 +5,29 @@ import { Nav } from '../nav';
 import { FirstNamePipe } from '../first-name.pipe';
 import { StoreService } from '../store.service';
 import { BehaviorSubject } from 'rxjs';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
-  providers: [FirstNamePipe]
+  providers: [FirstNamePipe],
+  animations: [
+    trigger('flyInOut', [
+      state('void', style({ position: 'fixed', width: '100%' })),
+      state('*', style({ position: 'fixed', width: '100%' })),
+      transition(':enter', [
+        style({ transform: 'scale(1.1) translateZ(0)', opacity: 0 }),
+        animate('0.4s ease')
+      ])
+    ])
+  ]
 })
 export class NavigationComponent implements OnInit {
   selectedUser: User;
