@@ -11,10 +11,22 @@
   <div class="nav-wrapper">
     <nav>
       <ul>
-        <li *ngFor="let item of nav" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.exact }">
-          {{ item.name }}
-        </li>
+        <a *ngFor="let item of nav" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.exact }">
+          <li>
+            {{ item.name }}
+          </li>
+        </a>
       </ul>
+      <div (click)="toggleMenuOpened()">
+        <icon-base class="menu" iconName="menu" iconColor="white" width="28" height="28">
+          <svg:g icon-three-dot/>
+        </icon-base>
+      </div>
+      <app-menu-drawer [menuOpened]="menuOpened"></app-menu-drawer>
+
+      <app-nav-transition></app-nav-transition>
+
+      <app-stats *ngIf="page === 'index'" [selectedUser]="selectedUser"></app-stats>
     </nav>
   </div>
 </header>

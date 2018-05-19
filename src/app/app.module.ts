@@ -18,6 +18,9 @@ import { StarEmptyComponent } from './icons/star-empty.component';
 import { StarFullComponent } from './icons/star-full.component';
 import { ThreeDotComponent } from './icons/three-dot.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import { NavTransitionComponent } from './nav-transition/nav-transition.component';
+import { MenuDrawerComponent } from './menu-drawer/menu-drawer.component';
+import { StatsComponent } from './stats/stats.component';
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'place', component: PlaceComponent },
@@ -40,7 +43,10 @@ const routes: Routes = [
     StarEmptyComponent,
     StarFullComponent,
     ThreeDotComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    NavTransitionComponent,
+    MenuDrawerComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

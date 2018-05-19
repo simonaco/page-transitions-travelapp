@@ -20,10 +20,10 @@ import { Component, OnInit, Input } from '@angular/core';
   ]
 })
 export class BaseComponent implements OnInit {
-  @Input() iconName;
-  @Input() width;
-  @Input() height;
-  @Input() iconColor;
+  @Input() iconName: string;
+  @Input() width: string;
+  @Input() height: string;
+  @Input() iconColor: string;
   constructor() {
     this.iconName = 'box';
     this.width = '18';
