@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { Nav } from '../nav';
 import { FirstNamePipe } from '../first-name.pipe';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
   selector: 'app-navigation',
@@ -11,8 +18,10 @@ import { FirstNamePipe } from '../first-name.pipe';
 })
 export class NavigationComponent implements OnInit {
   selectedUser: User;
+  page: string;
   nav: Nav[];
   constructor(private firstName: FirstNamePipe) {
+    this.page = 'index';
     this.selectedUser = { name: 'Simona Cotin' };
     this.nav = [
       {

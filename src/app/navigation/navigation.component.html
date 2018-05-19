@@ -3,6 +3,11 @@
   'group' : page === 'group',
   'index' : page === 'index'
 }">
+  <div name="bk" class="bk-img">
+    <div *ngIf="page === 'index'" class="header-img1"></div>
+    <div *ngIf="page === 'place'" class="header-img2"></div>
+    <div *ngIf="page === 'group'" class="header-img3"></div>
+  </div>
   <div class="nav-wrapper">
     <nav>
       <ul>
