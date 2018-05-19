@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class StarRatingComponent implements OnInit {
-  rating = 4;
-  constructor() {}
+  rating;
+  stars;
+  constructor() {
+    this.stars = Array.from(Array(this.rating).keys());
+  }
 
   ngOnInit() {}
 }

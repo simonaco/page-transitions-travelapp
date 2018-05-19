@@ -1,3 +1,42 @@
-<p>
-  nav-transition works!
-</p>
+<div *ngFor="let user of users; let i = index" (click)="changeUser(i)" [ngClass]="user === selectedUser ? 'activeUser' : 'secondaryUser'">
+  <div class="online"></div>
+  <img [src]="user.img" />
+</div>
+
+<button (click)="toggleFollow()" [ngClass]="following ? 'followclass' : ''" id="follow">
+  <span *ngIf="following">&#10004; Following</span>
+  <span *ngIf="!following">Follow</span>
+</button>
+
+<h2 id="profile-name" class="profile-name">
+  <span *ngIf="page === 'group'" class="user-trip">{{ selectedUser.trips[0] }}</span>
+  <span *ngIf="page !== 'group'">{{ selectedUser.name }}</span>
+</h2>
+
+<div (click)="addPlace()" class="side-icon" id="sideicon">
+  <icon-base *ngIf="page === 'index'" iconName="mail" iconColor="white" width="22" height="22">
+    <svg:g icon-mail />
+  </icon-base>
+
+  <icon-base *ngIf="page !== 'index'" iconName="plus" class="plus" width="18" height="18">
+    <svg:g icon-plus />
+  </icon-base>
+</div>
+
+<div id="saveinfo" class="saveinfo">Saved!</div>
+
+<aside id="aside">
+  <p class="map-pin">
+    <icon-base iconName="map pin" width="18" height="18">
+      <svg:g icon-map-pin />
+    </icon-base>
+    United States
+  </p>
+
+  <p class="calendar">
+    <icon-base iconName="calendar" width="18" height="18">
+      <svg:g icon-calendar />
+    </icon-base>
+    {{ selectedUser.days }} days traveling
+  </p>
+</aside>

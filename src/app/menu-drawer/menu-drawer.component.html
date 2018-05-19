@@ -1,3 +1,7 @@
-<p>
-  menu-drawer works!
-</p>
+<div class="menudrawer" *ngIf="menuOpened">
+  <a routerLink="/">{{ selectedUser.name | firstName }}'s Home</a>
+  <br>
+  <a routerLink="/place">{{ selectedUser.name | firstName }}'s Places</a>
+  <br>
+  <a routerLink="/group">{{ selectedUser.name | firstName }}'s Group Trips</a>
+</div>

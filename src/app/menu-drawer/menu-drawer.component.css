@@ -1,0 +1,17 @@
+.menudrawer {
+  background: rgba(0, 0, 0, 0.8);
+  line-height: 1.8;
+  text-align: right;
+  position: absolute;
+  right: 0px;
+  top: 45px;
+  padding: 20px;
+  border-radius: 4px;
+  z-index: 10000;
+}
+
+a,
+a:visited,
+a:active {
+  color: white;
+}

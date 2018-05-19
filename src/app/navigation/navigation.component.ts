@@ -3,6 +3,7 @@ import { TimelineMax, Expo, Sine, Back, TweenMax } from 'gsap';
 import { User } from '../user';
 import { Nav } from '../nav';
 import { FirstNamePipe } from '../first-name.pipe';
+import { StoreService } from '../store.service';
 
 @Component({
   selector: 'app-navigation',
@@ -15,10 +16,13 @@ export class NavigationComponent implements OnInit {
   page: string;
   nav: Nav[];
   menuOpened: boolean;
-  constructor(private firstName: FirstNamePipe) {
+  constructor(
+    private firstName: FirstNamePipe,
+    private storeService: StoreService
+  ) {
     this.menuOpened = false;
-    this.page = 'index';
-    this.selectedUser = { name: 'Simona Cotin' };
+    this.page = this.storeService.getPage();
+    this.selectedUser = this.storeService.getSelectedUser();
     this.nav = [
       {
         link: '/',
