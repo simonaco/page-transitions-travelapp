@@ -11,7 +11,7 @@
   <div class="nav-wrapper">
     <nav>
       <ul>
-        <a *ngFor="let item of nav" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.exact }">
+        <a *ngFor="let item of nav" [routerLink]="item.link" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: item.exact }">
           <li>
             {{ item.name }}
           </li>
