@@ -32,8 +32,8 @@ export class NavTransitionComponent implements OnInit {
     this.storeService.changeUser(i);
     if (this.page === 'group') {
       // const el = this.$refs.profile0[0];
-      //el.style.transform = `translate3d(${-70 +
-      //this.indexedUser * 55}px, -70px, 0) scale(0.25)`;
+      // el.style.transform = `translate3d(${-70 +
+      // this.indexedUser * 55}px, -70px, 0) scale(0.25)`;
     }
   }
   toggleFollow() {

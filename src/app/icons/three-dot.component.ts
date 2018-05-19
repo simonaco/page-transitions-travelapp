@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'icon-three-dot',
+  selector: '[icon-three-dot]',
   template: `
   <svg:g>
     <svg:circle class="first" cx="3" cy="12" r="3" />

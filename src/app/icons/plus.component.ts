@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'icon-plus',
+  selector: '[icon-plus]',
   template: `
   <svg:g>
     <svg:line class="line1" x1="0" x2="24" y1="12" y2="12" stroke="#333" stroke-linecap="round" stroke-width="3" />
