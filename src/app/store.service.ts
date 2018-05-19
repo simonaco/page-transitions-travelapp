@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StoreService {
   state;
+  pageStream = new BehaviorSubject('index');
+  indexedUserStream = new BehaviorSubject(0);
   constructor() {
     this.state = {
       page: 'index',
@@ -107,9 +111,16 @@ export class StoreService {
   getPage() {
     return this.state.page;
   }
+  getStreamPage(): BehaviorSubject<string> {
+    return this.pageStream;
+  }
 
   getIndexedUser() {
     return this.state.indexedUser;
+  }
+
+  getIndexedStream() {
+    return this.indexedUserStream;
   }
 
   getUsers() {
@@ -125,6 +136,7 @@ export class StoreService {
   }
   updatePage(pageName) {
     this.state.page = pageName;
+    this.pageStream.next(pageName);
   }
   addFollower() {
     this.state.users[this.state.indexedUser].followers++;
@@ -134,5 +146,6 @@ export class StoreService {
   }
   changeUser(i) {
     this.state.indexedUser = i;
+    this.indexedUserStream.next(i);
   }
 }

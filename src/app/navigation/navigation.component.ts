@@ -4,6 +4,7 @@ import { User } from '../user';
 import { Nav } from '../nav';
 import { FirstNamePipe } from '../first-name.pipe';
 import { StoreService } from '../store.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -20,8 +21,11 @@ export class NavigationComponent implements OnInit {
     private firstName: FirstNamePipe,
     private storeService: StoreService
   ) {
+    this.storeService.getStreamPage().subscribe(val => {
+      this.page = val;
+    });
     this.menuOpened = false;
-    this.page = this.storeService.getPage();
+    // this.page = this.storeService.getPage();
     this.selectedUser = this.storeService.getSelectedUser();
     this.nav = [
       {

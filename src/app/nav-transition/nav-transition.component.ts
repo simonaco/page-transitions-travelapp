@@ -22,9 +22,13 @@ export class NavTransitionComponent implements OnInit {
   secondaryUser = 'profile-photo-secondary';
   constructor(private storeService: StoreService) {
     this.selectedUser = this.storeService.getSelectedUser();
-    this.page = this.storeService.getPage();
+    this.storeService.getStreamPage().subscribe(val => {
+      this.page = val;
+    });
     this.users = this.storeService.getUsers();
-    this.indexedUser = this.storeService.getIndexedUser();
+    this.storeService.getIndexedStream().subscribe(val => {
+      this.indexedUser = val;
+    });
   }
 
   ngOnInit() {}
