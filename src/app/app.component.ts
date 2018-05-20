@@ -19,4 +19,8 @@ export class AppComponent {
       }
     });
   }
+
+  getState(outlet) {
+    return outlet.activatedRouteData.state;
+  }
 }

@@ -11,8 +11,10 @@ import { User } from '../user';
 export class MenuDrawerComponent implements OnInit {
   @Input() menuOpened: boolean;
   selectedUser: User;
-  constructor(private storeService: StoreService) {
-    this.selectedUser = storeService.getSelectedUser();
+  constructor(private store: StoreService) {
+    this.store.getSelectedUser().subscribe(val => {
+      this.selectedUser = val;
+    });
   }
 
   ngOnInit() {}

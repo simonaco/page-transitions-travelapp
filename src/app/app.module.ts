@@ -22,9 +22,10 @@ import { NavTransitionComponent } from './nav-transition/nav-transition.componen
 import { MenuDrawerComponent } from './menu-drawer/menu-drawer.component';
 import { StatsComponent } from './stats/stats.component';
 const routes: Routes = [
-  { path: '', component: IndexComponent },
-  { path: 'place', component: PlaceComponent },
-  { path: 'group', component: GroupComponent }
+  { path: '', redirectTo: 'index', pathMatch: 'full' },
+  { path: 'index', component: IndexComponent, data: { state: 'index' } },
+  { path: 'place', component: PlaceComponent, data: { state: 'place' } },
+  { path: 'group', component: GroupComponent, data: { state: 'group' } }
 ];
 @NgModule({
   declarations: [

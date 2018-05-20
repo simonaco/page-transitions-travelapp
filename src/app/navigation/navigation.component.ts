@@ -20,8 +20,6 @@ import {
   providers: [FirstNamePipe],
   animations: [
     trigger('flyInOut', [
-      state('void', style({ position: 'fixed', width: '100%' })),
-      state('*', style({ position: 'fixed', width: '100%' })),
       transition(':enter', [
         style({ transform: 'scale(1.1) translateZ(0)', opacity: 0 }),
         animate('0.4s ease')
@@ -34,16 +32,14 @@ export class NavigationComponent implements OnInit {
   page: string;
   nav: Nav[];
   menuOpened: boolean;
-  constructor(
-    private firstName: FirstNamePipe,
-    private storeService: StoreService
-  ) {
-    this.storeService.getStreamPage().subscribe(val => {
+  constructor(private firstName: FirstNamePipe, private store: StoreService) {
+    this.store.getStreamPage().subscribe(val => {
       this.page = val;
     });
     this.menuOpened = false;
-    // this.page = this.storeService.getPage();
-    this.selectedUser = this.storeService.getSelectedUser();
+    this.store.getSelectedUser().subscribe(val => {
+      this.selectedUser = val;
+    });
     this.nav = [
       {
         link: '/',

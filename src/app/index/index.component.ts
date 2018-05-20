@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { StoreService } from '../store.service';
+import { UserService } from '../user.service';
+import { PlaceService } from '../place.service';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -10,10 +12,16 @@ export class IndexComponent implements OnInit {
   places;
   users;
   page;
-  constructor(private store: StoreService) {
-    this.page = this.store.getPage();
-    this.users = this.store.getUsers();
-    this.places = this.store.getPlaces();
+  constructor(
+    private store: StoreService,
+    private userService: UserService,
+    private placeService: PlaceService
+  ) {
+    this.store.getStreamPage().subscribe(val => {
+      this.page = val;
+    });
+    this.users = this.userService.getUsers();
+    this.places = this.placeService.getPlaces();
   }
 
   ngOnInit() {

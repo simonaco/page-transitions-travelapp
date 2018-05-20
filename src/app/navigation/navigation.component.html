@@ -11,10 +11,14 @@
   <div class="nav-wrapper">
     <nav>
       <ul>
-        <a *ngFor="let item of nav" [routerLink]="item.link" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: item.exact }">
-          <li>
-            {{ item.name }}
-          </li>
+        <a routerLink="/" routerLinkActive="router-link-active">
+          <li>{{ selectedUser.name | firstName }}'s Home</li>
+        </a>
+        <a routerLink="/place" routerLinkActive="router-link-active">
+          <li>{{ selectedUser.name | firstName }}'s Places</li>
+        </a>
+        <a routerLink="/group" routerLinkActive="router-link-active">
+          <li>{{ selectedUser.name | firstName }}'s Group Trips</li>
         </a>
       </ul>
       <div (click)="toggleMenuOpened()">

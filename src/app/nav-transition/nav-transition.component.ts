@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TimelineMax, Expo, Sine, Back, TweenMax } from 'gsap';
 import { StoreService } from '../store.service';
 import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-nav-transition',
@@ -20,20 +21,22 @@ export class NavTransitionComponent implements OnInit {
   followclass = 'active-follow';
   activeUser = 'profile-photo';
   secondaryUser = 'profile-photo-secondary';
-  constructor(private storeService: StoreService) {
-    this.selectedUser = this.storeService.getSelectedUser();
-    this.storeService.getStreamPage().subscribe(val => {
+  constructor(private store: StoreService, private userService: UserService) {
+    this.store.getSelectedUser().subscribe(val => {
+      this.selectedUser = val;
+    });
+    this.store.getStreamPage().subscribe(val => {
       this.page = val;
     });
-    this.users = this.storeService.getUsers();
-    this.storeService.getIndexedStream().subscribe(val => {
+    this.users = this.userService.getUsers();
+    this.store.getIndexedStream().subscribe(val => {
       this.indexedUser = val;
     });
   }
 
   ngOnInit() {}
   changeUser(i) {
-    this.storeService.changeUser(i);
+    this.store.changeUser(i);
     if (this.page === 'group') {
       // const el = this.$refs.profile0[0];
       // el.style.transform = `translate3d(${-70 +
@@ -42,9 +45,9 @@ export class NavTransitionComponent implements OnInit {
   }
   toggleFollow() {
     if (this.following) {
-      this.storeService.removeFollower();
+      this.store.removeFollower();
     } else {
-      this.storeService.addFollower();
+      this.store.addFollower();
     }
     this.following = !this.following;
   }
