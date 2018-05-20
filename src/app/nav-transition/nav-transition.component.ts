@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { AnimationBuilder, animate, style } from '@angular/animations';
 import { TimelineMax, Expo, Sine, Back, TweenMax } from 'gsap';
 import { StoreService } from '../store.service';
 import { User } from '../user';
@@ -19,8 +20,6 @@ export class NavTransitionComponent implements OnInit {
   following = false;
   follow = 'follow';
   followclass = 'active-follow';
-  activeUser = 'profile-photo';
-  secondaryUser = 'profile-photo-secondary';
   constructor(private store: StoreService, private userService: UserService) {
     this.store.getSelectedUser().subscribe(val => {
       this.selectedUser = val;
@@ -35,6 +34,14 @@ export class NavTransitionComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  getClasses(user, i) {
+    const activeClass =
+      user.name === this.selectedUser.name
+        ? 'profile-photo'
+        : 'profile-photo-secondary';
+    return `${activeClass} profile-${i}`;
+  }
   changeUser(i) {
     this.store.changeUser(i);
     if (this.page === 'group') {

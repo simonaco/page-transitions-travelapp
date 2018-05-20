@@ -1,5 +1,5 @@
 <div>
-  <div *ngFor="let user of users; let i = index" (click)="changeUser(i)" [ngClass]="[user === selectedUser ? activeUser : secondaryUser, 'profile-'+i]">
+  <div *ngFor="let user of users; let i = index" (click)="changeUser(i)" [ngClass]="getClasses(user, i)">
     <div class=" online "></div>
     <img [src]="user.img " />
   </div>

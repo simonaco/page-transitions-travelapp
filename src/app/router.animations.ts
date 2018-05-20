@@ -10,31 +10,17 @@ import {
 } from '@angular/animations';
 
 export const routerTransition = trigger('routerTransition', [
-  transition('* <=> *', [
-    /* order */
-    /* 1 */ query(
-      ':enter, :leave',
-      style({ position: 'fixed', width: '100%' }),
-      { optional: true }
-    ),
-    /* 2 */ group([
-      // block executes in parallel
-      query(
-        ':enter',
-        [
-          style({ transform: 'translateX(100%)' }),
-          animate('0.5s ease-in-out', style({ transform: 'translateX(0%)' }))
-        ],
-        { optional: true }
+  transition('* => place', [
+    query(
+      '.profile-name',
+      animate(
+        1000,
+        style({
+          transform: 'translate3d(140px, -125px, 0) scale(0.75)',
+          color: 'white'
+        })
       ),
-      query(
-        ':leave',
-        [
-          style({ transform: 'translateX(0%)' }),
-          animate('0.5s ease-in-out', style({ transform: 'translateX(-100%)' }))
-        ],
-        { optional: true }
-      )
-    ])
+      { optional: true }
+    )
   ])
 ]);
