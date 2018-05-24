@@ -120,7 +120,7 @@ aside p {
 }
 
 //animations
-.place {
+:host-context(.place) {
   .follow {
     transform: translate3d(-215px, -80px, 0);
   }
@@ -140,7 +140,7 @@ aside p {
   }
 }
 
-.group {
+:host-context(.group) {
   .follow {
     opacity: 0;
     transition: none;
@@ -172,7 +172,7 @@ aside p {
     transform: translate3d(0px, -125px, 0);
     color: white;
   }
-  .side-icon {
+  :host-context(.side-icon) {
     transform: translate3d(0, -40px, 0);
     background: rgba(255, 255, 255, 0.9);
   }
@@ -181,7 +181,7 @@ aside p {
   }
 }
 
-.index {
+:host-context(.index) {
   .profile-photo {
     transform: translate3d(0, 0, 0) scale(1);
   }
@@ -193,8 +193,8 @@ aside p {
 
 //make the icon aligned with the avatars that are similar on mobile
 @media screen and (max-width: 600px) {
-  .group,
-  .place {
+  :host-context(.group),
+  :host-context(.place) {
     .side-icon {
       transform: translate3d(0, -65px, 0);
       padding: 14px 14px 12px;
