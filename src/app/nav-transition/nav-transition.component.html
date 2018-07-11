@@ -4,7 +4,7 @@
     <img [src]="user.img " />
   </div>
 
-  <button (click)="toggleFollow() " [ngClass]="following ? 'followclass' : '' " id="follow ">
+  <button (click)="toggleFollow() " [ngClass]="[following ? 'followclass' : '', follow ]" id="follow ">
     <span *ngIf="following ">&#10004; Following</span>
     <span *ngIf="!following ">Follow</span>
   </button>
