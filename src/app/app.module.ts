@@ -12,7 +12,7 @@ import { IndexComponent } from './index/index.component';
 import { BaseComponent } from './icons/base.component';
 import { CalendarComponent } from './icons/calendar.component';
 import { MailComponent } from './icons/mail.component';
-import { MailPinComponent } from './icons/mail-pin.component';
+import { IconMapPinComponent } from './icons/icon-map-pin.component';
 import { PlusComponent } from './icons/plus.component';
 import { IconStarEmptyComponent } from './icons/icon-star-empty.component';
 import { IconStarFullComponent } from './icons/icon-star-full.component';
@@ -39,7 +39,7 @@ const routes: Routes = [
     BaseComponent,
     CalendarComponent,
     MailComponent,
-    MailPinComponent,
+    IconMapPinComponent,
     PlusComponent,
     IconStarEmptyComponent,
     IconStarFullComponent,
