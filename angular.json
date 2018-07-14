@@ -25,7 +25,10 @@
             "assets": [
               { "glob": "**/*", "input": "src/static/", "output": "/" }
             ],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "node_modules/mapbox-gl/dist/mapbox-gl.css",
+              "src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -72,7 +75,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": ["src/styles.sass"],
+            "styles": [
+              "node_modules/mapbox-gl/dist/mapbox-gl.css",
+              "src/styles.sass"
+            ],
             "scripts": [],
             "assets": [
               { "glob": "**/*", "input": "src/static/", "output": "/" }
