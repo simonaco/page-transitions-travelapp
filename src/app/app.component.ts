@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { StoreService } from './store.service';
-import { routerTransition } from './router.animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [routerTransition]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   constructor(public router: Router, private storeService: StoreService) {

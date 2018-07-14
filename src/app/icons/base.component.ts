@@ -3,9 +3,13 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'icon-base',
   template: `
-  <svg xmlns="http://www.w3.org/2000/svg" [attr.width]="width" [attr.height]="height" viewBox="0 0 24 24" [attr.aria-labelledby]="iconName"
-  role="presentation">
-  <title [id]="iconName" lang="en">{{iconName}} icon</title>
+  <svg xmlns="http://www.w3.org/2000/svg"
+    [attr.width]="width"
+    [attr.height]="height"
+    viewBox="0 0 24 24"
+    [attr.aria-labelledby]="iconName"
+    role="presentation">
+    <title [id]="iconName" lang="en">{{iconName}} icon</title>
     <svg:g [attr.fill]="iconColor">
       <ng-content></ng-content>
     </svg:g>
