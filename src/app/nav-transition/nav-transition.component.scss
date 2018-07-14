@@ -172,7 +172,7 @@ aside p {
     transform: translate3d(0px, -125px, 0);
     color: white;
   }
-  .side-icon {
+  :host-context(.side-icon) {
     transform: translate3d(0, -40px, 0);
     background: rgba(255, 255, 255, 0.9);
   }

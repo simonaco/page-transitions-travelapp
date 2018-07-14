@@ -1,7 +1,7 @@
 <header [ngClass]="{
-  'place' : (page === 'place'),
-  'group' : (page === 'group'),
-  'index' : (page === 'index')
+  'place': page === 'place',
+  'group': page === 'group',
+  'index': page === 'index'
 }">
   <div name="bk" class="bk-img" [ngSwitch]="page">
     <div *ngSwitchCase="'index'" class="header-img1" [@flyInOut]></div>
