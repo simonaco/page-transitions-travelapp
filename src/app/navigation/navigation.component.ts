@@ -1,17 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { TimelineMax, Expo, Sine, Back, TweenMax } from 'gsap';
-import { User } from '../user';
-import { Nav } from '../nav';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Sine, TweenMax } from 'gsap';
+
 import { FirstNamePipe } from '../first-name.pipe';
+import { Nav } from '../nav';
 import { StoreService } from '../store.service';
-import { BehaviorSubject } from 'rxjs';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
+import { User } from '../user';
+import { ThreeDotComponent } from './../icons/three-dot.component';
 
 @Component({
   selector: 'app-navigation',
@@ -31,12 +26,14 @@ export class NavigationComponent implements OnInit {
   selectedUser: User;
   page: string;
   nav: Nav[];
-  menuOpened: boolean;
+  opened: boolean;
+  @ViewChild('threeDots')
+  threeDots: ThreeDotComponent;
+
   constructor(private firstName: FirstNamePipe, private store: StoreService) {
     this.store.getStreamPage().subscribe(val => {
       this.page = val;
     });
-    this.menuOpened = false;
     this.store.getSelectedUser().subscribe(val => {
       this.selectedUser = val;
     });
@@ -59,19 +56,34 @@ export class NavigationComponent implements OnInit {
     ];
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  set menuOpened(value) {
+    this.opened = value;
+    if (this.opened) {
+      this.openMenu();
+    } else {
+      this.closeMenu();
+    }
+  }
+
+  get menuOpened() { return this.opened; }
+
 
   openMenu() {
-    TweenMax.to('.first', 0.2, {
+    TweenMax.to(this.threeDots.first.nativeElement, 0.2, {
       x: 18,
       ease: Sine.easeOut
     });
-    TweenMax.to('.last', 0.2, {
+    TweenMax.to(this.threeDots.last.nativeElement, 0.2, {
       x: -18,
       ease: Sine.easeOut
     });
-    TweenMax.staggerTo(
-      '.first, .middle, .last',
+    TweenMax.staggerTo([
+      this.threeDots.first.nativeElement,
+      this.threeDots.middle.nativeElement,
+      this.threeDots.last.nativeElement
+    ],
       0.2,
       {
         fill: '#7eebe6',
@@ -82,25 +94,21 @@ export class NavigationComponent implements OnInit {
   }
 
   closeMenu() {
-    TweenMax.to('.first', 0.2, {
+    TweenMax.to(this.threeDots.first.nativeElement, 0.2, {
       x: 0,
       ease: Sine.easeIn
     });
-    TweenMax.to('.last', 0.2, {
+    TweenMax.to(this.threeDots.last.nativeElement, 0.2, {
       x: 0,
       ease: Sine.easeIn
     });
-    TweenMax.to('.first, .middle, .last', 0.2, {
-      fill: '#fff'
-    });
+    TweenMax.to([
+      this.threeDots.first.nativeElement,
+      this.threeDots.middle.nativeElement,
+      this.threeDots.last.nativeElement
+    ], 0.2, {
+        fill: '#fff'
+      });
   }
 
-  toggleMenuOpened() {
-    this.menuOpened = !this.menuOpened;
-    if (this.menuOpened) {
-      this.openMenu();
-    } else {
-      this.closeMenu();
-    }
-  }
 }

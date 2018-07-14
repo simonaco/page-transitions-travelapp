@@ -1,7 +1,17 @@
-<div>
+<div [attr.title]="rating + ' stars'">
 
-  <icon-base *ngFor="let number of stars" iconName="full star " color="orangered ">
+  <icon-base
+    *ngFor="let number of stars"
+    iconName="full star"
+    iconColor="orangered">
     <svg:g icon-star-full />
+  </icon-base>
+
+  <icon-base
+    *ngFor="let number of emptyStars"
+    iconName="empty star"
+    iconColor="orangered">
+    <svg:g icon-star-empty />
   </icon-base>
 
 </div>

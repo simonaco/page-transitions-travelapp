@@ -3,10 +3,10 @@
   'group': page === 'group',
   'index': page === 'index'
 }">
-  <div name="bk" class="bk-img">
-    <div *ngIf="page === 'index'" class="header-img1" [@flyInOut]></div>
-    <div *ngIf="page === 'place'" class="header-img2" [@flyInOut]></div>
-    <div *ngIf="page === 'group'" class="header-img3" [@flyInOut]></div>
+  <div name="bk" class="bk-img" [ngSwitch]="page">
+    <div *ngSwitchCase="'index'" class="header-img1" [@flyInOut]></div>
+    <div *ngSwitchCase="'place'" class="header-img2" [@flyInOut]></div>
+    <div *ngSwitchCase="'group'" class="header-img3" [@flyInOut]></div>
   </div>
   <div class="nav-wrapper">
     <nav>
@@ -21,9 +21,9 @@
           <li>{{ selectedUser.name | firstName }}'s Group Trips</li>
         </a>
       </ul>
-      <div (click)="toggleMenuOpened()">
+      <div (click)="menuOpened = !menuOpened">
         <icon-base class="menu" iconName="menu" iconColor="white" width="28" height="28">
-          <svg:g icon-three-dot/>
+          <svg:g icon-three-dot #threeDots/>
         </icon-base>
       </div>
       <app-menu-drawer [menuOpened]="menuOpened"></app-menu-drawer>

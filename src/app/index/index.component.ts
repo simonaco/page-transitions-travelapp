@@ -1,17 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import * as mapboxgl from 'mapbox-gl';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import mapboxgl, { Map } from 'mapbox-gl';
+
+import { PlaceService } from '../place.service';
 import { StoreService } from '../store.service';
 import { UserService } from '../user.service';
-import { PlaceService } from '../place.service';
+
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss']
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent implements AfterViewInit, OnDestroy {
+
   places;
   users;
   page;
+  map: Map;
+
+  @ViewChild('mapcontain')
+  mapContain: ElementRef<HTMLElement>;
+
   constructor(
     private store: StoreService,
     private userService: UserService,
@@ -24,12 +32,18 @@ export class IndexComponent implements OnInit {
     this.places = this.placeService.getPlaces();
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     mapboxgl.accessToken =
       'pk.eyJ1Ijoic2RyYXNuZXIiLCJhIjoiY2pmZzBqZmptMjI1eTMzbWl1bGExMHppZyJ9.diPXryPOiyMuqcV4mpNOlg';
-    const map = new mapboxgl.Map({
-      container: 'mapcontain',
+    this.map = new mapboxgl.Map({
+      container: this.mapContain.nativeElement,
       style: 'mapbox://styles/sdrasner/cjfg0watl6rkv2sllf6hepdd5'
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.map) {
+      this.map.remove();
+    }
   }
 }
