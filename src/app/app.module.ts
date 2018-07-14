@@ -14,8 +14,8 @@ import { CalendarComponent } from './icons/calendar.component';
 import { MailComponent } from './icons/mail.component';
 import { MailPinComponent } from './icons/mail-pin.component';
 import { PlusComponent } from './icons/plus.component';
-import { StarEmptyComponent } from './icons/star-empty.component';
-import { StarFullComponent } from './icons/star-full.component';
+import { IconStarEmptyComponent } from './icons/icon-star-empty.component';
+import { IconStarFullComponent } from './icons/icon-star-full.component';
 import { ThreeDotComponent } from './icons/three-dot.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { NavTransitionComponent } from './nav-transition/nav-transition.component';
@@ -41,8 +41,8 @@ const routes: Routes = [
     MailComponent,
     MailPinComponent,
     PlusComponent,
-    StarEmptyComponent,
-    StarFullComponent,
+    IconStarEmptyComponent,
+    IconStarFullComponent,
     ThreeDotComponent,
     StarRatingComponent,
     NavTransitionComponent,
