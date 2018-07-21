@@ -50,7 +50,7 @@ const routes: Routes = [
     StatsComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'my-app' }),
     BrowserAnimationsModule,
     RouterModule.forRoot(routes)
   ],
