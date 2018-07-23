@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "serve -s dist/travel-app",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -24,6 +24,7 @@
     "gsap": "^1.20.4",
     "mapbox-gl": "^0.45.0",
     "rxjs": "^6.0.0",
+    "serve": "^9.3.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
