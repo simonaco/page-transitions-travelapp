@@ -38,11 +38,11 @@ jobs:
 
       - run:
           command: |
-            docker build -t sicotin.azurecr.io/page-transitions:1.0 .
+            docker build -t sicotin.azurecr.io/page-transitions-travelapp:1.0 .
       - run:
           command: |
             docker login --username $DOCKER_USER --password $DOCKER_PASS sicotin.azurecr.io
       - run:
           command: |
-            docker push sicotin.azurecr.io/page-transitions:1.0
+            docker push sicotin.azurecr.io/page-transitions-travelapp:1.0
 
