@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild
+} from '@angular/core';
 import mapboxgl, { Map } from 'mapbox-gl';
 
 import { PlaceService } from '../place.service';
@@ -11,7 +17,6 @@ import { UserService } from '../user.service';
   styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements AfterViewInit, OnDestroy {
-
   places;
   users;
   page;
@@ -33,12 +38,12 @@ export class IndexComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    mapboxgl.accessToken =
+    /*     mapboxgl.accessToken =
       'pk.eyJ1Ijoic2RyYXNuZXIiLCJhIjoiY2pmZzBqZmptMjI1eTMzbWl1bGExMHppZyJ9.diPXryPOiyMuqcV4mpNOlg';
     this.map = new mapboxgl.Map({
       container: this.mapContain.nativeElement,
       style: 'mapbox://styles/sdrasner/cjfg0watl6rkv2sllf6hepdd5'
-    });
+    }); */
   }
 
   ngOnDestroy(): void {

@@ -1,4 +1,4 @@
-<div class="menudrawer" *ngIf="menuOpened">
+<div (@flyInOut.start)="enter($event)" [@flyInOut]="'in'" class="menudrawer" *ngIf="menuOpened">
   <a routerLink="/">{{ selectedUser.name | firstName }}'s Home</a>
   <br>
   <a routerLink="/place">{{ selectedUser.name | firstName }}'s Places</a>
