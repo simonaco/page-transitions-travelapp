@@ -34,7 +34,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm run build:ssr && npm run serve:ssr
+      - run: npm run build:ssr
 
       - run:
           command: |
