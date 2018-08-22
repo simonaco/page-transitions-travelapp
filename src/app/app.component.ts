@@ -4,8 +4,15 @@ import { StoreService } from './store.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+  <div>
+    <app-navigation></app-navigation>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </div>
+
+  `,
+  styles: []
 })
 export class AppComponent {
   constructor(public router: Router, private storeService: StoreService) {

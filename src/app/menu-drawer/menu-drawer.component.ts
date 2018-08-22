@@ -15,7 +15,8 @@ import { trigger, state, style } from '@angular/animations';
   ]
 })
 export class MenuDrawerComponent implements OnInit {
-  @Input() menuOpened: boolean;
+  @Input()
+  menuOpened: boolean;
   selectedUser: User;
   constructor(private store: StoreService) {
     this.store.getSelectedUser().subscribe(val => {

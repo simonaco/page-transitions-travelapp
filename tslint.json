@@ -18,7 +18,8 @@
     "forin": true,
     "import-blacklist": [
       true,
-      "rxjs/Rx"
+      "rxjs/Rx",
+      "rxjs/operators"
     ],
     "import-spacing": true,
     "indent": [
@@ -106,6 +107,7 @@
         "variable-declaration": "nospace"
       }
     ],
+    "typeof-compare": true,
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
@@ -115,6 +117,18 @@
       "check-operator",
       "check-separator",
       "check-type"
+    ],
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
     ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
