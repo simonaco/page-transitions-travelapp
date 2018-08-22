@@ -1,26 +1,33 @@
-# Page Transitions TravelApp
+# Page Transitions Travelapp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
+### Fork
 
-## Development server
+🙋🏼 This repository is a rewrite with Angular & Angular Universal of [Sarah Drasner](https://twitter.com/sarah_edo)'s orginal work with [Vue & Nuxt](https://github.com/sdras/page-transitions-travelapp).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Live demo: [https://page-transitions-travelapp.azurewebsites.net](https://page-transitions-travelapp.azurewebsites.net)
 
-## Code scaffolding
+### Original
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This demo shows an example of how to acheive native-like page transitions on the web. There's much to be improved here- it's not meant to be a full-fledged web application, just a quick demo to show how this kind of implementation could theoretically work. These concepts can and should be expressed differently in your own application, the sky's the limit here! This is created with Nuxt and Vue.
 
-## Build
+Article explaining the demo is available at
+[https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web](https://css-tricks.com/native-like-animations-for-page-transitions-on-the-web)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Build Setup
 
-## Running unit tests
+```bash
+# install dependencies
+$ npm install # Or yarn install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# serve with hot reload at http://localhost:4200/
+$ ng serve
 
-## Running end-to-end tests
+# build for production and launch server
+$ npm run build:ssr && npm run serve:ssr
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# generate static project
+$ npm run build:ssr
+```
 
 ## Runing in Docker
 
@@ -42,4 +49,4 @@ Navigate to http://localhost in order to see the containerized application.
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For detailed explanation on how things work, checkout the [Angular Universal docs](https://angular.io/guide/universal).
