@@ -1,6 +1,5 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { AnimationBuilder, animate, style } from '@angular/animations';
-import { TimelineMax, Expo, Sine, Back, TweenMax } from 'gsap';
+import { Component, OnInit, ViewChildren, Renderer2 } from '@angular/core';
+import { TimelineMax, Expo, Sine, Back } from 'gsap';
 import { StoreService } from '../store.service';
 import { User } from '../user';
 import { UserService } from '../user.service';
@@ -11,6 +10,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./nav-transition.component.scss']
 })
 export class NavTransitionComponent implements OnInit {
+  @ViewChildren('profile')
+  profiles;
   selectedUser: User;
   page: string;
   saved: boolean;
@@ -20,7 +21,11 @@ export class NavTransitionComponent implements OnInit {
   following = false;
   follow = 'follow';
   followclass = 'active-follow';
-  constructor(private store: StoreService, private userService: UserService) {
+  constructor(
+    private store: StoreService,
+    private userService: UserService,
+    private renderer: Renderer2
+  ) {
     this.store.getSelectedUser().subscribe(val => {
       this.selectedUser = val;
     });
@@ -45,9 +50,11 @@ export class NavTransitionComponent implements OnInit {
   changeUser(i) {
     this.store.changeUser(i);
     if (this.page === 'group') {
-      // const el = this.$refs.profile0[0];
-      // el.style.transform = `translate3d(${-70 +
-      // this.indexedUser * 55}px, -70px, 0) scale(0.25)`;
+      this.renderer.setStyle(
+        this.profiles.toArray()[0]['nativeElement'],
+        'transform',
+        `translate3d(${-70 + this.indexedUser * 55}px, -70px, 0) scale(0.25)`
+      );
     }
   }
   toggleFollow() {
@@ -70,7 +77,6 @@ export class NavTransitionComponent implements OnInit {
   }
 
   addAnimation() {
-    // I love prettier, but it does make this animation code a lot longer and less legible than it could be :/
     const tl = new TimelineMax();
 
     tl.add('start');
