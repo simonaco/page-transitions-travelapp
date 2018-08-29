@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM nginx:stable-alpine
 LABEL author="Simona Cotin"
 COPY ./dist/browser /var/www
 COPY nginx.conf /etc/nginx/nginx.conf
