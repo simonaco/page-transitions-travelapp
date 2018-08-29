@@ -4,9 +4,9 @@
   'index': page === 'index'
 }">
   <div name="bk" class="bk-img" [ngSwitch]="page">
-    <div *ngSwitchCase="'index'" class="header-img1" [@flyInOut]></div>
-    <div *ngSwitchCase="'place'" class="header-img2" [@flyInOut]></div>
-    <div *ngSwitchCase="'group'" class="header-img3" [@flyInOut]></div>
+    <div *ngSwitchCase="'index'" class="header-img1" [@header]></div>
+    <div *ngSwitchCase="'place'" class="header-img2" [@header]></div>
+    <div *ngSwitchCase="'group'" class="header-img3" [@header]></div>
   </div>
   <div class="nav-wrapper">
     <nav>
