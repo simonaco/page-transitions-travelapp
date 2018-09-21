@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: '[icon-mail]',
   template: `
   <svg:path d="M20 3h-16c-1.7 0-3 1.3-3 3v12c0 1.7

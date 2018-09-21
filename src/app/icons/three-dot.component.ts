@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: '[icon-three-dot]',
   template: `
   <svg:g>
@@ -12,7 +13,6 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
   styles: []
 })
 export class ThreeDotComponent implements OnInit {
-
   @ViewChild('first')
   public first: ElementRef<HTMLElement>;
 

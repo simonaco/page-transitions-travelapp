@@ -1,30 +1,33 @@
 <div>
-  <div #profile
-       *ngFor="let user of users; let i = index"
-       (click)="changeUser(i)"
-       [ngClass]="getClasses(user, i)">
+  <div #profile *ngFor="let user of users; let i = index" (click)="changeUser(i)" [ngClass]="getClasses(user, i)">
     <div class="online"></div>
     <img [src]="user.img" />
   </div>
 
   <button (click)="toggleFollow()" [ngClass]="[following ? followclass : '', follow]">
-    <span *ngIf="following">&#10004; Following</span>
-    <span *ngIf="!following">Follow</span>
+    <span *ngIf="following; else follow ">&#10004; Following</span>
+    <ng-template #follow>
+      <span>Follow</span>
+    </ng-template>
   </button>
 
   <h2 id="profile-name" class="profile-name">
-    <span *ngIf="page==='group'" class="user-trip ">{{ selectedUser.trips[0] }}</span>
-    <span *ngIf="page !=='group'">{{ selectedUser.name }}</span>
+    <span *ngIf="page==='group'; else selectedUserName" class="user-trip ">{{ selectedUser.trips[0] }}</span>
+    <ng-template #selectedUserName>
+      <span>{{ selectedUser.name }}</span>
+    </ng-template>
   </h2>
 
   <div (click)="addPlace() " class="side-icon" id="side-icon">
-    <icon-base *ngIf="page==='index'" iconName="mail" iconColor="white" width="22" height="22">
+    <icon-base *ngIf="page==='index'; else plusIcon" iconName="mail" iconColor="white" width="22" height="22">
       <svg:g icon-mail></svg:g>
     </icon-base>
+    <ng-template #plusIcon>
+      <icon-base iconName="plus" class="plus" width="18" height="18">
+        <svg:g icon-plus />
+      </icon-base>
+    </ng-template>
 
-    <icon-base *ngIf="page !=='index'" iconName="plus" class="plus" width="18" height="18">
-      <svg:g icon-plus />
-    </icon-base>
   </div>
 
   <div id="saveinfo" class="saveinfo">Saved!</div>

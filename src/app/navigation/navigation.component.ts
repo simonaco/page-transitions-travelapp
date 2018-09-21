@@ -14,7 +14,7 @@ import { ThreeDotComponent } from './../icons/three-dot.component';
   styleUrls: ['./navigation.component.scss'],
   providers: [FirstNamePipe],
   animations: [
-    trigger('flyInOut', [
+    trigger('header', [
       transition(':enter', [
         style({ transform: 'scale(1.1) translateZ(0)', opacity: 0 }),
         animate('0.4s ease')
@@ -56,7 +56,7 @@ export class NavigationComponent implements OnInit {
     ];
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   set menuOpened(value) {
     this.opened = value;
@@ -67,8 +67,9 @@ export class NavigationComponent implements OnInit {
     }
   }
 
-  get menuOpened() { return this.opened; }
-
+  get menuOpened() {
+    return this.opened;
+  }
 
   openMenu() {
     TweenMax.to(this.threeDots.first.nativeElement, 0.2, {
@@ -79,11 +80,12 @@ export class NavigationComponent implements OnInit {
       x: -18,
       ease: Sine.easeOut
     });
-    TweenMax.staggerTo([
-      this.threeDots.first.nativeElement,
-      this.threeDots.middle.nativeElement,
-      this.threeDots.last.nativeElement
-    ],
+    TweenMax.staggerTo(
+      [
+        this.threeDots.first.nativeElement,
+        this.threeDots.middle.nativeElement,
+        this.threeDots.last.nativeElement
+      ],
       0.2,
       {
         fill: '#7eebe6',
@@ -102,13 +104,16 @@ export class NavigationComponent implements OnInit {
       x: 0,
       ease: Sine.easeIn
     });
-    TweenMax.to([
-      this.threeDots.first.nativeElement,
-      this.threeDots.middle.nativeElement,
-      this.threeDots.last.nativeElement
-    ], 0.2, {
+    TweenMax.to(
+      [
+        this.threeDots.first.nativeElement,
+        this.threeDots.middle.nativeElement,
+        this.threeDots.last.nativeElement
+      ],
+      0.2,
+      {
         fill: '#fff'
-      });
+      }
+    );
   }
-
 }
