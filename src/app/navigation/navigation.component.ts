@@ -27,7 +27,7 @@ export class NavigationComponent implements OnInit {
   page: string;
   nav: Nav[];
   opened: boolean;
-  @ViewChild('threeDots')
+  @ViewChild('threeDots', { static: true })
   threeDots: ThreeDotComponent;
 
   constructor(private firstName: FirstNamePipe, private store: StoreService) {

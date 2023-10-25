@@ -22,7 +22,7 @@ export class IndexComponent implements AfterViewInit, OnDestroy {
   page;
   map: Map;
 
-  @ViewChild('mapcontain')
+  @ViewChild('mapcontain', { static: true })
   mapContain: ElementRef<HTMLElement>;
 
   constructor(

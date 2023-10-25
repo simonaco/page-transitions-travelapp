@@ -13,13 +13,13 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
   styles: []
 })
 export class ThreeDotComponent implements OnInit {
-  @ViewChild('first')
+  @ViewChild('first', { static: true })
   public first: ElementRef<HTMLElement>;
 
-  @ViewChild('middle')
+  @ViewChild('middle', { static: true })
   public middle: ElementRef<HTMLElement>;
 
-  @ViewChild('last')
+  @ViewChild('last', { static: true })
   public last: ElementRef<HTMLElement>;
 
   constructor() {}
