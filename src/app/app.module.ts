@@ -59,7 +59,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'my-app' }),
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule,
     TransferHttpCacheModule
   ],
