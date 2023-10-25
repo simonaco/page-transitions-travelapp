@@ -96,13 +96,6 @@
             ]
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["src/tsconfig.app.json"],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
@@ -137,13 +130,6 @@
           "options": {
             "protractorConfig": "./protractor.conf.js",
             "devServerTarget": "travel-app:serve"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [],
-            "exclude": ["**/node_modules/**"]
           }
         }
       }
