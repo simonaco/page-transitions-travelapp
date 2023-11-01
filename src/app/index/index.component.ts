@@ -10,11 +10,16 @@ import mapboxgl, { Map } from 'mapbox-gl';
 import { PlaceService } from '../place.service';
 import { StoreService } from '../store.service';
 import { UserService } from '../user.service';
+import { IconMapPinComponent } from '../icons/icon-map-pin.component';
+import { BaseComponent } from '../icons/base.component';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+    selector: 'app-index',
+    templateUrl: './index.component.html',
+    styleUrls: ['./index.component.scss'],
+    standalone: true,
+    imports: [NgFor, BaseComponent, IconMapPinComponent]
 })
 export class IndexComponent implements AfterViewInit, OnDestroy {
   places;

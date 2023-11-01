@@ -9,11 +9,11 @@
       "sourceRoot": "src",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/browser",
+            "outputPath": "dist/travel-app",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -29,7 +29,12 @@
               }
             ],
             "styles": ["src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -48,9 +53,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
@@ -62,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "travel-app:build:production"
+              "buildTarget": "travel-app:build:production"
             },
             "development": {
-              "browserTarget": "travel-app:build:development"
+              "buildTarget": "travel-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "travel-app:build"
+            "buildTarget": "travel-app:build"
           }
         },
         "test": {
@@ -96,106 +99,11 @@
               }
             ]
           }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "travel-app:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "travel-app:serve:production"
-            }
-          }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/server",
-            "main": "server.ts",
-            "tsConfig": "src/tsconfig.server.json"
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media"
-            },
-            "development": {
-              "optimization": false,
-              "sourceMap": true,
-              "extractLicenses": false
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "travel-app:build:development",
-              "serverTarget": "travel-app:server:development"
-            },
-            "production": {
-              "browserTarget": "travel-app:build:production",
-              "serverTarget": "travel-app:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "routes": [
-              "/"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "travel-app:build:production",
-              "serverTarget": "travel-app:server:production"
-            },
-            "development": {
-              "browserTarget": "travel-app:build:development",
-              "serverTarget": "travel-app:server:development"
-            }
-          },
-          "defaultConfiguration": "production"
         }
       }
     }
   },
   "cli": {
     "analytics": "20500d8e-6736-404b-8e20-5b482ba69641"
-  },
-  "schematics": {
-    "@schematics/angular:class": {
-      "skipTests": true
-    },
-    "@schematics/angular:component": {
-      "skipTests": true,
-      "inlineStyle": true,
-      "inlineTemplate": true,
-      "prefix": "[app, icon]",
-      "schematics": {
-        "@schematics/angular:component": {
-          "styleext": "sass"
-        }
-      }
-    },
-    "@schematics/angular:directive": {
-      "skipTests": true,
-      "prefix": "app"
-    },
-    "@schematics/angular:guard": {
-      "skipTests": true
-    },
-    "@schematics/angular:module": {
-    },
-    "@schematics/angular:pipe": {
-      "skipTests": true
-    },
-    "@schematics/angular:service": {
-      "skipTests": true
-    }
   }
 }

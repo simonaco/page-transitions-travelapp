@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'icon-base',
-  template: `
+    selector: 'icon-base',
+    template: `
   <svg xmlns="http://www.w3.org/2000/svg"
     [attr.width]="width"
     [attr.height]="height"
@@ -15,13 +15,14 @@ import { Component, OnInit, Input } from '@angular/core';
     </svg:g>
   </svg>
   `,
-  styles: [
-    `svg {
+    styles: [
+        `svg {
     display: inline-block;
     vertical-align: baseline;
     margin-bottom: -2px; /* yes, I'm that particular about formatting */
   }`
-  ]
+    ],
+    standalone: true
 })
 export class BaseComponent implements OnInit {
   @Input() iconName: string;

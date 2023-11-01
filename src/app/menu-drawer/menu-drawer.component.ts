@@ -3,16 +3,21 @@ import { TweenMax, Sine } from 'gsap';
 import { StoreService } from '../store.service';
 import { User } from '../user';
 import { trigger, state, style } from '@angular/animations';
+import { FirstNamePipe } from '../first-name.pipe';
+import { RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-menu-drawer',
-  templateUrl: './menu-drawer.component.html',
-  styleUrls: ['./menu-drawer.component.css'],
-  animations: [
-    trigger('flyInOut', [
-      state('in', style({ opacity: 1, transformOrigin: '100% 0%' }))
-    ])
-  ]
+    selector: 'app-menu-drawer',
+    templateUrl: './menu-drawer.component.html',
+    styleUrls: ['./menu-drawer.component.css'],
+    animations: [
+        trigger('flyInOut', [
+            state('in', style({ opacity: 1, transformOrigin: '100% 0%' }))
+        ])
+    ],
+    standalone: true,
+    imports: [NgIf, RouterLink, FirstNamePipe]
 })
 export class MenuDrawerComponent implements OnInit {
   @Input()

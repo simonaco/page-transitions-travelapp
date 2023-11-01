@@ -1,8 +1,14 @@
 import { Component, Input } from '@angular/core';
+import { IconStarEmptyComponent } from '../icons/icon-star-empty.component';
+import { IconStarFullComponent } from '../icons/icon-star-full.component';
+import { BaseComponent } from '../icons/base.component';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-star-rating',
-  templateUrl: './star-rating.component.html'
+    selector: 'app-star-rating',
+    templateUrl: './star-rating.component.html',
+    standalone: true,
+    imports: [NgFor, BaseComponent, IconStarFullComponent, IconStarEmptyComponent]
 })
 export class StarRatingComponent {
 

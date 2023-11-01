@@ -21,6 +21,7 @@
     "useDefineForClassFields": false,
     "target": "ES2022",
     "module": "ES2022",
+    "allowSyntheticDefaultImports": true,
     "lib": [
       "ES2022",
       "dom"

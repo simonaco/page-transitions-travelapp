@@ -3,11 +3,19 @@ import { TimelineMax, Expo, Sine, Back } from 'gsap';
 import { StoreService } from '../store.service';
 import { User } from '../user';
 import { UserService } from '../user.service';
+import { CalendarComponent } from '../icons/calendar.component';
+import { IconMapPinComponent } from '../icons/icon-map-pin.component';
+import { PlusComponent } from '../icons/plus.component';
+import { MailComponent } from '../icons/mail.component';
+import { BaseComponent } from '../icons/base.component';
+import { NgFor, NgClass, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-nav-transition',
-  templateUrl: './nav-transition.component.html',
-  styleUrls: ['./nav-transition.component.scss']
+    selector: 'app-nav-transition',
+    templateUrl: './nav-transition.component.html',
+    styleUrls: ['./nav-transition.component.scss'],
+    standalone: true,
+    imports: [NgFor, NgClass, NgIf, BaseComponent, MailComponent, PlusComponent, IconMapPinComponent, CalendarComponent]
 })
 export class NavTransitionComponent implements OnInit {
   @ViewChildren('profile')

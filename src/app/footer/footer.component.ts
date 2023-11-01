@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-footer",
-  template: `
+    selector: "app-footer",
+    template: `
     <footer>
       <div>
         Original project by
@@ -36,7 +36,8 @@ import { Component, OnInit } from "@angular/core";
       </div>
     </footer>
   `,
-  styleUrls: ["./footer.component.css"],
+    styleUrls: ["./footer.component.css"],
+    standalone: true,
 })
 export class FooterComponent implements OnInit {
   constructor() {}

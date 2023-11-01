@@ -7,20 +7,29 @@ import { Nav } from '../nav';
 import { StoreService } from '../store.service';
 import { User } from '../user';
 import { ThreeDotComponent } from './../icons/three-dot.component';
+import { StatsComponent } from '../stats/stats.component';
+import { NavTransitionComponent } from '../nav-transition/nav-transition.component';
+import { MenuDrawerComponent } from '../menu-drawer/menu-drawer.component';
+import { ThreeDotComponent as ThreeDotComponent_1 } from '../icons/three-dot.component';
+import { BaseComponent } from '../icons/base.component';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NgClass, NgSwitch, NgSwitchCase, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
-  providers: [FirstNamePipe],
-  animations: [
-    trigger('header', [
-      transition(':enter', [
-        style({ transform: 'scale(1.1) translateZ(0)', opacity: 0 }),
-        animate('0.4s ease')
-      ])
-    ])
-  ]
+    selector: 'app-navigation',
+    templateUrl: './navigation.component.html',
+    styleUrls: ['./navigation.component.scss'],
+    providers: [FirstNamePipe],
+    animations: [
+        trigger('header', [
+            transition(':enter', [
+                style({ transform: 'scale(1.1) translateZ(0)', opacity: 0 }),
+                animate('0.4s ease')
+            ])
+        ])
+    ],
+    standalone: true,
+    imports: [NgClass, NgSwitch, NgSwitchCase, RouterLink, RouterLinkActive, BaseComponent, ThreeDotComponent_1, MenuDrawerComponent, NavTransitionComponent, NgIf, StatsComponent, FirstNamePipe]
 })
 export class NavigationComponent implements OnInit {
   selectedUser: User;
